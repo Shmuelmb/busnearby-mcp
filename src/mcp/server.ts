@@ -116,8 +116,20 @@ server.tool(
       .boolean()
       .describe("Whether to ignore real-time updates")
       .default(false),
-    date: z.string().optional().describe("Date for the trip (optional)"),
-    time: z.string().optional().describe("Time for the trip (optional)"),
+    date: z
+      .string()
+      .optional()
+      .describe(
+        `Date for the trip (optional) in this format YYYY-MM-DD (e.g., 2025-06-08) dont use past dates only future dates from today ${
+          new Date().toISOString().split("T")[0]
+        }`
+      ),
+    time: z
+      .string()
+      .optional()
+      .describe(
+        "Time for the trip (optional) in this format HH:MM (e.g., 10:00)"
+      ),
   },
   async (params) => {
     try {
