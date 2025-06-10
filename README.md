@@ -190,3 +190,22 @@ This MCP server interfaces with the Bus Nearby API to provide:
 - Accessibility features
 
 All responses follow standard MCP protocol formatting with proper error handling.
+
+## Contributing
+
+Feel free to:
+
+- 🐛 Report bugs or issues
+- 💡 Suggest new features or improvements
+- 📖 Improve documentation
+- 🔧 Submit pull requests
+
+**Getting Started:**
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+All contributions are welcome and appreciated!
