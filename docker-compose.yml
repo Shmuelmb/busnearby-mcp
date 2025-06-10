@@ -1,0 +1,7 @@
+services:
+  busnearby-mcp:
+    build: .
+    container_name: busnearby-mcp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

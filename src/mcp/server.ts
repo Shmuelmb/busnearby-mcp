@@ -9,6 +9,7 @@ import {
   GeocodeRequest,
   DirectionsRequest,
   LocationPlaceSchema,
+  OptimizeMode,
 } from "../types"
 
 /**
@@ -109,9 +110,9 @@ server.tool(
       .describe("Maximum walking distance in meters")
       .default("1207"),
     optimize: z
-      .enum(["QUICK", "SAFE", "FLAT", "GREENWAYS", "TRIANGLE"])
+      .nativeEnum(OptimizeMode)
       .describe("Route optimization preference")
-      .default("QUICK"),
+      .default(OptimizeMode.QUICK),
     ignoreRealtimeUpdates: z
       .boolean()
       .describe("Whether to ignore real-time updates")

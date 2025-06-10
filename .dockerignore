@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build output
+dist
+
+# Test files
+test-results
+playwright-report
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# IDE
+.vscode
+.idea
+
+# Environment files
+.env*
+
+# Docker files
+Dockerfile*
+docker-compose*
+
+# Memory bank (project-specific)
+memory-bank
+
+# Logs
+*.log 

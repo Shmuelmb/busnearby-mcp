@@ -1,129 +1,146 @@
-# Bus Nearby MCP
+# Bus Nearby MCP Server
 
 A Model Context Protocol (MCP) server that provides access to the Bus Nearby API for geocoding and location services.
 
-## Project Structure
-
-```
-├── src/
-│   ├── api/           # API client implementations
-│   ├── types/         # Shared TypeScript interfaces
-│   └── mcp/           # MCP server implementation
-└── tests/
-    └── e2e/           # End-to-end tests
-```
-
 ## Features
 
-- 🚍 **Geocoding API**: Convert location queries to geographical coordinates
-- 🧪 **E2E Testing**: End-to-end tests with Playwright
-- 🔌 **MCP Integration**: Bridge to LLMs via Model Context Protocol
+- 🚍 **Geocoding**: Convert location queries to geographical coordinates
+- 🗺️ **Directions**: Get transit directions between locations
+- 🌐 **Multi-language**: Support for Hebrew and English
+- 🔌 **MCP Protocol**: Standard MCP server implementation
+- 📦 **Docker Support**: Easy deployment with Docker
 
-## Getting Started
+## Quick Start with Docker + Cursor
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
+- Docker installed and running
+- Cursor IDE
 
-### Installation
+### Setup Instructions
 
-1. Clone the repository:
+1. **Build and setup the MCP server:**
 
-```bash
-git clone https://github.com/Shmuelmb/busnearby-mcp.git
-cd busnearby-mcp
-```
+   ```bash
+   docker build -t busnearby-mcp .
+   ```
 
-2. Install dependencies:
+2. **Add this to mcp.json**
 
-```bash
-npm install
-```
-
-3. Install Playwright browsers (for E2E tests):
-
-```bash
-npx playwright install
-```
-
-## Usage
-
-### API Client
-
-```typescript
-import { GeocodeAPI, GeocodeRequest } from "./src/api"
-
-const geocodeAPI = new GeocodeAPI()
-
-const request: GeocodeRequest = {
-  locale: "he",
-  query: "תל אביב",
+```json
+{
+  "mcpServers": {
+    "busnearby": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--name",
+        "busnearby-mcp-cursor",
+        "busnearby-mcp"
+      ],
+      "env": {}
+    }
+  }
 }
-
-const results = await geocodeAPI.geocode(request)
-console.log(results)
 ```
 
-### Testing
+## Available Tools
 
-Run E2E tests:
+### `geocode`
 
-```bash
-npm run test:e2e
-```
-
-Run E2E tests with UI:
-
-```bash
-npm run test:e2e:ui
-```
-
-### Development
-
-Build the project:
-
-```bash
-npm run build
-```
-
-Run in development mode:
-
-```bash
-npm run dev
-```
-
-## API Endpoints
-
-### GET /geocode
-
-Convert a location query string to geographical coordinates.
+Convert location queries to coordinates.
 
 **Parameters:**
 
-- `locale` (required): The locale for the search (e.g., 'he', 'en')
-- `query` (required): The location query to geocode
+- `locale`: "he" or "en" (Hebrew or English)
+- `query`: Location string (e.g., "תל אביב" or "Tel Aviv")
 
-**Response:**
+**Example:**
 
 ```json
-[
-  {
-    "description": "תל אביב - יפו",
-    "lat": 32.0853,
-    "lng": 34.7818
-  }
-]
+{
+  "locale": "he",
+  "query": "תל אביב"
+}
 ```
 
-## Contributing
+### `directions`
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+Get transit directions between locations.
 
-## License
+**Parameters:**
 
-This project is licensed under the ISC License.
+- `fromPlace`: Starting location ("address::lat,lng")
+- `toPlace`: Destination ("address::lat,lng")
+- `locale`: "he" or "en" (default: "he")
+- `arriveBy`: Optimize for arrival time (default: false)
+- `wheelchair`: Wheelchair accessible (default: false)
+- `mode`: Transport modes (default: "WALK,TRANSIT")
+- `numItineraries`: Number of routes (default: 3)
+- `date`: Trip date (YYYY-MM-DD, optional)
+- `time`: Trip time (HH:MM, optional)
+
+## Docker Commands
+
+```bash
+# Build the image
+docker build -t busnearby-mcp .
+
+# Run with docker-compose
+docker-compose up -d
+
+# Run interactively for testing
+docker run --rm -i busnearby-mcp
+
+# Test MCP protocol
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"tools":{}},"clientInfo":{"name":"test","version":"1.0.0"}}}' | docker run --rm -i busnearby-mcp
+```
+
+## Development
+
+### Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+### Build and Test
+
+```bash
+npm run build
+npm start
+npm run test:e2e
+```
+
+## Troubleshooting
+
+### Docker Issues
+
+- Ensure Docker is running
+- Try rebuilding: `docker build --no-cache -t busnearby-mcp .`
+- Check logs: `docker logs busnearby-mcp`
+
+### Cursor Connection Issues
+
+- Restart Cursor after configuration changes
+- Check MCP configuration path is correct
+- Verify Docker image exists: `docker images | grep busnearby-mcp`
+
+### MCP Protocol Issues
+
+- Test server directly: `echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{"tools":{}},"clientInfo":{"name":"test","version":"1.0.0"}}}' | docker run --rm -i busnearby-mcp`
+- Check for JSON-RPC format in responses
+
+## API Reference
+
+This MCP server interfaces with the Bus Nearby API to provide:
+
+- Location geocoding in multiple languages
+- Multi-modal transit routing
+- Real-time schedule information
+- Accessibility features
+
+All responses follow standard MCP protocol formatting with proper error handling.
