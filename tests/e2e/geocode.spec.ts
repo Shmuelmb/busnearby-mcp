@@ -1,12 +1,10 @@
 import { test, expect } from "@playwright/test"
 import { BASE_URL } from "../../src/lib/constants"
 test.describe("Geocode API E2E Tests", () => {
-  const baseURL = BASE_URL
-
   test("should return valid geocode results for Hebrew query", async ({
     request,
   }) => {
-    const response = await request.get(`${baseURL}/geocode`, {
+    const response = await request.get(`${BASE_URL}/geocode`, {
       params: {
         locale: "he",
         query: "תל אביב",
@@ -32,7 +30,7 @@ test.describe("Geocode API E2E Tests", () => {
   test("should return valid geocode results for English query", async ({
     request,
   }) => {
-    const response = await request.get(`${baseURL}/geocode`, {
+    const response = await request.get(`${BASE_URL}/geocode`, {
       params: {
         locale: "en",
         query: "Jerusalem",
@@ -56,7 +54,7 @@ test.describe("Geocode API E2E Tests", () => {
   })
 
   test("should handle special characters in query", async ({ request }) => {
-    const response = await request.get(`${baseURL}/geocode`, {
+    const response = await request.get(`${BASE_URL}/geocode`, {
       params: {
         locale: "he",
         query: "תל אביב - יפו",
