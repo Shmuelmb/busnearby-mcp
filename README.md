@@ -1,9 +1,11 @@
-#  Bus Nearby MCP (Israeli transport MCP).
+# Bus Nearby MCP (Israeli transport MCP).
 
 A Model Context Protocol (MCP) server that provides access to the Bus Nearby API (Israeli transport api).
 
 ## Features
+
 https://github.com/user-attachments/assets/147ee388-e9c0-4f97-82e7-71d4d6534de0
+
 - 🚍 **Geocoding**: Convert location queries to geographical coordinates
 - 🗺️ **Directions**: Get transit directions between locations
 - 🌐 **Multi-language**: Support for Hebrew and English
@@ -19,13 +21,30 @@ https://github.com/user-attachments/assets/147ee388-e9c0-4f97-82e7-71d4d6534de0
 
 ### Setup Instructions
 
-1. **Build and setup the MCP server:**
+1. **Setup the MCP server:**
+
+   ```json
+   {
+     "mcpServers": {
+       "busnearby-docker": {
+         "command": "docker",
+         "args": ["run", "--rm", "-i", "shmuelc/busnearby-mcp:latest"]
+       }
+     }
+   }
+   ```
+
+## Connect locally with Docker
+
+1. **Clone this repo**
+2. **Navigate to repo foler**
+3. **Build and setup the MCP server:**
 
    ```bash
    docker build -t busnearby-mcp .
    ```
 
-2. **Add this to mcp.json**
+4. **Add this to mcp.json**
 
    ```json
    {
