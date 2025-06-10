@@ -10,6 +10,10 @@ A Model Context Protocol (MCP) server that provides access to the Bus Nearby API
 - 🔌 **MCP Protocol**: Standard MCP server implementation
 - 📦 **Docker Support**: Easy deployment with Docker
 
+## Demo Video
+
+https://github.com/user-attachments/assets/84fa2c73-b1cc-49e8-b2ba-91c0d0c8af1e
+
 ## Quick Start with Docker + Cursor
 
 ### Prerequisites
