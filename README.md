@@ -1,6 +1,6 @@
 # Bus Nearby MCP Server
 
-A Model Context Protocol (MCP) server that provides access to the Bus Nearby API for geocoding and location services.
+A Model Context Protocol (MCP) server that provides access to the Bus Nearby API (Israeli transport api).
 
 ## Features
 https://github.com/user-attachments/assets/147ee388-e9c0-4f97-82e7-71d4d6534de0
