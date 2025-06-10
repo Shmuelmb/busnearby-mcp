@@ -17,7 +17,7 @@ import {
  * Provides geocoding and directions functionality through the Bus Nearby API
  */
 
-const server = new McpServer({
+const server: number = new McpServer({
   name: "BusNearby",
   version: "1.0.0",
 })
