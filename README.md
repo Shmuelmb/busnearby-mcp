@@ -27,24 +27,70 @@ A Model Context Protocol (MCP) server that provides access to the Bus Nearby API
 
 2. **Add this to mcp.json**
 
-```json
-{
-  "mcpServers": {
-    "busnearby": {
-      "command": "docker",
-      "args": [
-        "run",
-        "--rm",
-        "-i",
-        "--name",
-        "busnearby-mcp-cursor",
-        "busnearby-mcp"
-      ],
-      "env": {}
-    }
-  }
-}
-```
+   ```json
+   {
+     "mcpServers": {
+       "busnearby": {
+         "command": "docker",
+         "args": [
+           "run",
+           "--rm",
+           "-i",
+           "--name",
+           "busnearby-mcp-cursor",
+           "busnearby-mcp"
+         ],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+## Connect locally without Docker
+
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn
+- Cursor IDE
+
+### Setup Instructions
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+2. **Build the project:**
+
+   ```bash
+   npm run build
+   ```
+
+3. **Test the MCP server:**
+
+   ```bash
+   npm start
+   ```
+
+4. **Add to your Cursor MCP configuration:**
+
+   ```json
+   {
+     "mcpServers": {
+       "busnearby": {
+         "command": "node",
+         "args": ["/Users/shmuel/Desktop/personal/busnearby-mcp/dist/main.js"],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+   **Important:** Replace the path with your actual project path.
+
+5. **Restart Cursor** to load the new MCP server
 
 ## Available Tools
 
