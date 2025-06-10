@@ -9,7 +9,13 @@ export type TransportMode =
   | "CABLE_CAR"
   | "SHARE_TAXI"
 
-export type OptimizeMode = "QUICK" | "SAFE" | "FLAT" | "GREENWAYS" | "TRIANGLE"
+export enum OptimizeMode {
+  QUICK = "QUICK",
+  SAFE = "SAFE",
+  FLAT = "FLAT",
+  GREENWAYS = "GREENWAYS",
+  TRIANGLE = "TRIANGLE",
+}
 
 export type LocationPlace = `${string},${string}::${string}`
 
