@@ -1,4 +1,4 @@
-# Bus Nearby MCP Server
+#  Bus Nearby MCP (Israeli transport MCP).
 
 A Model Context Protocol (MCP) server that provides access to the Bus Nearby API (Israeli transport api).
 
