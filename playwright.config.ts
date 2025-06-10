@@ -1,5 +1,5 @@
 import { defineConfig, devices } from "@playwright/test"
-
+import { BASE_URL } from "./src/lib/constants"
 export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,
@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   use: {
-    baseURL: "https://api.busnearby.co.il",
+    baseURL: BASE_URL,
     trace: "on-first-retry",
   },
 

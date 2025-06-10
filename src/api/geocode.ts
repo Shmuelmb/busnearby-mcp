@@ -1,6 +1,5 @@
 import { GeocodeRequest, GeocodeResponse } from "../types"
-
-const BASE_URL = "https://api.busnearby.co.il"
+import { BASE_URL } from "../lib/constants"
 
 export class GeocodeAPI {
   private baseUrl: string

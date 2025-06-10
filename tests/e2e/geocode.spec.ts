@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test"
-
+import { BASE_URL } from "../../src/lib/constants"
 test.describe("Geocode API E2E Tests", () => {
-  const baseURL = "https://api.busnearby.co.il"
+  const baseURL = BASE_URL
 
   test("should return valid geocode results for Hebrew query", async ({
     request,

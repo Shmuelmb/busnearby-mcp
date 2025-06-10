@@ -1,7 +1,5 @@
 import { DirectionsRequest, DirectionsResponse } from "../types"
-
-const BASE_URL = "https://api.busnearby.co.il"
-
+import { BASE_URL } from "../lib/constants"
 export class DirectionsAPI {
   private baseUrl: string
 
