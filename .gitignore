@@ -6,3 +6,5 @@ dist
 .env.test.local
 .env.production.local
 test-results
+playwright-report
+memory-bank
