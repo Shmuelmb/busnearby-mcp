@@ -3,16 +3,12 @@
 A Model Context Protocol (MCP) server that provides access to the Bus Nearby API for geocoding and location services.
 
 ## Features
-
+https://github.com/user-attachments/assets/147ee388-e9c0-4f97-82e7-71d4d6534de0
 - 🚍 **Geocoding**: Convert location queries to geographical coordinates
 - 🗺️ **Directions**: Get transit directions between locations
 - 🌐 **Multi-language**: Support for Hebrew and English
 - 🔌 **MCP Protocol**: Standard MCP server implementation
 - 📦 **Docker Support**: Easy deployment with Docker
-
-## Demo Video
-
-https://github.com/user-attachments/assets/84fa2c73-b1cc-49e8-b2ba-91c0d0c8af1e
 
 ## Quick Start with Docker + Cursor
 
