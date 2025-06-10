@@ -1,7 +1,7 @@
 # Bus Nearby MCP (Israeli transport MCP).
 
 A Model Context Protocol (MCP) server that provides access to the Israeli transport api.  
-This is the Unofficial MCP of Bus Nearby API, [You can check this API here](https://busnearby.co.il/plan)
+This is the Unofficial MCP of Bus Nearby API, [You can check this API here](https://busnearby.co.il/plan).
 
 ## Features
 
