@@ -21,7 +21,8 @@
     "dev": "ts-node src/main.ts",
     "clean": "rm -rf dist",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "test:unit": "jest"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
@@ -29,7 +30,10 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.2",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
