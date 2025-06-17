@@ -94,11 +94,7 @@ describe("DirectionsAPI", () => {
         ellipsoidToGeoidDifference: 0,
         geoidElevation: false
       }
-      // metadata: { // This was causing a type error, assuming it's not in DirectionsResponse
-      //   parameters: {},
-      //   next_page_token: null,
-      //   request_time: Date.now(),
-      // },
+// Removed the commented-out metadata block as it is no longer needed.
     };
     (global.fetch as jest.Mock).mockResolvedValueOnce({
       ok: true,
