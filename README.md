@@ -17,7 +17,7 @@ https://github.com/user-attachments/assets/147ee388-e9c0-4f97-82e7-71d4d6534de0
 
 ### Prerequisites
 
-- Cursor IDE
+- Cursor IDE (or any other MCP client)
 - [Docker Engine](https://docs.docker.com/engine/install/)
 
 ### Setup Instructions
